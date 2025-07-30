@@ -28,7 +28,7 @@ const Card = ({ name, image, id, price, type }) => {
 
             </div>
 
-            <button className='cursor-pointer w-full rounded-lg  p-3 bg-green-500 text-white hover:bg-green-400 font-semibold' onClick={() =>{dispatch(addItem({ id: id, name: name, price: price, image: image, qty: 1 })), toast.success('Item added! ✅') }}>Add to card</button>
+            <button className='cursor-pointer w-full rounded-lg  p-3 bg-green-500 text-white hover:bg-green-400 font-semibold' onClick={() =>{dispatch(addItem({ id: id, name: name, price: price, image: image, qty: 1 })), toast.success('Item added! ✅') }}>Add to cart</button>
 
         </div>
     )

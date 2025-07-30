@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Nav from '../components/Nav'
 import Categories from '../Category'
 import Card from '../components/Card'
@@ -8,12 +8,17 @@ import { RxCross2 } from "react-icons/rx";
 import Card2 from '../components/Card2'
 import { useSelector } from 'react-redux'
 import { TfiFaceSad } from "react-icons/tfi";
-// import { useSelector } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Home = () => {
 
   let { cate, setcate, input, showCard, setShowCard } = useContext(dataContex);
+   const [activeTab, setActiveTab] = useState('All');
+
+   console.log(activeTab);
+   
 
   let Items = useSelector((state) => state.card)
 
@@ -53,7 +58,7 @@ const Home = () => {
         <div className='flex flex-wrap justify-center gap-5 items-center w-[100%]'>
           {Categories.map((value) => {
 
-            return <div onClick={() => filter(value.name)} className='w-[140px] h-[150px] bg-white flex flex-col gap-5 p-5 items-center text-[20px] font-bold text-gray-700 rounded-lg shadow-xl hover:bg-green-200 transition-all duration-200'  >
+            return <div onClick={() =>{filter(value.name), setActiveTab(value.name)}  } className={`${activeTab==value.name?"bg-green-200":"bg-white"} w-[140px] h-[150px]  flex flex-col gap-5 p-5 items-center text-[20px] font-bold text-gray-700 rounded-lg shadow-xl hover:bg-green-200 transition-all duration-200`}  >
 
               {value.icon}
               {value.name}

@@ -2,6 +2,7 @@ import React from 'react'
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { useDispatch } from 'react-redux';
 import { incrementQTY, removeItem,  decrementQTY } from '../Redux/cardSlice';
+import { toast } from 'react-toastify';
 
 const Card2 = ({name, id, price, image , qty}) => {
 
@@ -38,7 +39,7 @@ const Card2 = ({name, id, price, image , qty}) => {
 
             <div className='flex flex-col justify-start items-end gap-6'>
                 <span className='text-lg font-semibold text-green-500 '>Rs. {price}/-</span>
-                <RiDeleteBin5Line   onClick={() => dispatch(removeItem(id))} className='w-[30px] h-[30px] text-red-500 cursor-pointer'/>
+                <RiDeleteBin5Line   onClick={() =>{dispatch(removeItem(id)), toast.error('Item Removed 🗑️')}} className='w-[30px] h-[30px] text-red-500 cursor-pointer'/>
 
 
             </div>
